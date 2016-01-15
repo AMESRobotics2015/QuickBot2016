@@ -27,8 +27,8 @@ public class InputManager {
 		if (cont.getRawButton(13)) {
 			input = Math.pow(input, 3)/3;
 		}else{
-			input = Math.pow(input, 3)/6
+			input = Math.pow(input, 3)/6;
 		}
-		
+		return input;
 	}	
 	}
