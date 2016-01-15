@@ -18,6 +18,8 @@ public class Robot extends IterativeRobot {
     final String customAuto = "My Auto";
     String autoSelected;
     SendableChooser chooser;
+    private static MotorControl MC;
+    private static InputManager IM;
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -28,6 +30,8 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", defaultAuto);
         chooser.addObject("My Auto", customAuto);
         SmartDashboard.putData("Auto choices", chooser);
+        MC = new MotorControl();
+        IM = new InputManager();
     }
     
 	/**
@@ -65,7 +69,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        
+        MC.drive(IM.controllerInput());
     }
     
     /**
