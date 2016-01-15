@@ -30,5 +30,5 @@ public class InputManager {
 			input = Math.pow(input, 3)/6
 		}
 		
-				
+	}	
 	}
