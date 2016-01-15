@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 
 /**
- 	* 
+ 	* White tape right side
  	* X1,A2,B3,Y4,LB5,RB6,LT7,RT8,BA9,ST10,LJ11,RJ12
  */
 public class InputManager {
