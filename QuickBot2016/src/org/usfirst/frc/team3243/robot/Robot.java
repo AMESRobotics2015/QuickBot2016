@@ -47,6 +47,7 @@ public class Robot extends IterativeRobot {
 
     /**
      * This function is called periodically during autonomous
+     * Plug in the white tape controller on the right-side USB port of the driver station laptop
      */
     public void autonomousPeriodic() {
     	switch(autoSelected) {
