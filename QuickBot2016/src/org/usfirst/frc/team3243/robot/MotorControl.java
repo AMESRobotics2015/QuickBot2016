@@ -13,9 +13,16 @@ public class MotorControl {
 	
 	//motor1 = front left, motor2 = back left, motor3 = front right, motor4 = back right
 	public void drive(double[] speed) {
-		//motor1.set(-speed[0]);
+		motor1.set(-speed[0]);
 		motor2.set(-speed[0]);
 		motor3.set(speed[1]);
-		//motor4.set(speed[1]);
+		motor4.set(speed[1]);
+	}
+	
+	/**
+	 * Method for inputting values from input manager for gamepiece. NOTE: We may need to make more of these depending upon the final design.
+	 */
+	void gameMotor(){
+		
 	}
 }

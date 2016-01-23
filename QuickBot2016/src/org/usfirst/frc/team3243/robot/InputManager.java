@@ -11,16 +11,23 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class InputManager {
 	Joystick ctrl = new Joystick(0);
-	double[] in;
+	double[] in = new double[2];
 	
+	/**
+	 * Basic controller input to be set up for sending to the robot.
+	 * @return
+	 */
 	double[] controllerInput() {
-		in[0] = ramp(deadZone(ctrl.getRawAxis(1))); //get a value (-1 to 1) from the controller. Then make sure it's outside of the deadzone. Then multiply it if the sprinting button is pressed.
-		in[1] = ramp(deadZone(ctrl.getRawAxis(3)));
+		in[0] = .7 * ramp(deadZone(ctrl.getRawAxis(1))); //get a value (-1 to 1) from the controller. Then make sure it's outside of the deadzone. Then multiply it if the sprinting button is pressed.
+		in[1] = .7 * ramp(deadZone(ctrl.getRawAxis(3)));
 		return(in);
 	}
 	
-	
-	//sets input to 0 if it's within the deadzone
+	/**
+	 * sets input to 0 if it's within the deadzone
+	 * @param input
+	 * @return
+	 */
 	double deadZone (double input) {
 		double deadRange = 0.1;
 		if (Math.abs(input) < deadRange) {
@@ -30,14 +37,29 @@ public class InputManager {
 	}
 	
 	
-	//Make it so that if either trigger is pressed, robot goes at full speed. Otherwise, it goes at partial speed.
-	//Intended to affect getRawAxis()
+	/**
+	 * Make it so that if either trigger is pressed, robot goes at full speed. Otherwise, it goes at partial speed. Intended to affect getRawAxis()
+	 * @param input
+	 * @return
+	 */
 	double ramp(double input){
-		if (ctrl.getRawButton(7)) {
-			input = Math.pow(input, 3) / 3;
-		}else{
-			input = Math.pow(input, 3) / 6;
-		}
+		
+			//input = Math.pow(input, 3) / 3;
+		
 		return input;
 	}	
+	
+	/**
+	 * Much like above, this will allow us to get an axis reading if need be for a gamepiece.
+	 */
+	public void gameRawAxisGet(){
+		
+	}
+	
+	/**
+	 * Read button presses as user input.
+	 */
+	public void gameButtons(){
+		
+	}
 }
