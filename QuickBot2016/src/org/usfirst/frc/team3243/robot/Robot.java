@@ -70,6 +70,7 @@ public class Robot extends IterativeRobot {
         		while(S.gyroFeed(false) < degree){
         			System.out.println(S.gyroFeed(false));
         			double[] in = new double[2];
+        			in[0] = 0.2;
         			in[1] = -0.2;
         			MC.drive(in);
         		} 
