@@ -20,6 +20,8 @@ public class Sensors {
 		watch = new USBCamera();
 		// Rotations  = new Encoder(null, null);
 		Direction = new AnalogGyro(0);
+		Direction.initGyro();
+		Direction.calibrate();
 	}
 	
 	/**
@@ -54,12 +56,20 @@ public class Sensors {
 	 * This method will get the feedback from the gyro to be used elswhere.
 	 */
 	public double gyroFeed(boolean reset){
-		//Put code here - will have to change the return and possibly params.
-		if (reset)
-		{
-			Direction.reset();
-		}
-		return Direction.getAngle();
+		//getAngle method returns a value between negative infinity and infinity representing the deviation in degrees from the angle 0
+				//for example, if turn the gyro two full turns to the left, it will return (-720). 
+				if (reset)
+				{
+					Direction.reset();
+				}
+				//System.out.println("Direction Center: " + Direction.getCenter());
+				//System.out.println("Current Angle: " + Direction.getAngle());
+				System.out.println( Direction.getAngle());
+				if (128 < Direction.getAngle() && Direction.getAngle()< 132)
+				{
+				System.out.println( "DONE");
+				}
+				return Direction.getAngle();
 	}
 	
 	/**

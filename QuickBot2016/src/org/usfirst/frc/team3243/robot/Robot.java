@@ -20,6 +20,8 @@ public class Robot extends IterativeRobot {
     SendableChooser chooser;
     private static MotorControl MC;
     private static InputManager IM;
+    private static Sensors S;
+    double degree = -20;
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -32,6 +34,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto choices", chooser);
         MC = new MotorControl();
         IM = new InputManager();
+        S = new Sensors();
     }
     
 	/**
@@ -60,6 +63,26 @@ public class Robot extends IterativeRobot {
             break;
     	case defaultAuto:
     	default:
+    		S.gyroFeed(true);
+        	
+        	if (degree > 0)
+        		//clockwise increases the gyro output
+        	{//If you want to turn 
+        		while(S.gyroFeed(false) < degree){
+        			System.out.println(S.gyroFeed(false));
+        			double[] in = new double[2];
+        			in[0] = 0.2;
+        			in[1] = -0.2;
+        			MC.drive(in);
+        		} 
+        	}else if (degree < 0) {
+        		while(S.gyroFeed(false) > degree){
+        			double[] in = new double[2];
+        			in[0] = -0.2;
+        			in[1] = 0.2;
+        			MC.drive(in);
+        		}
+        	}
     	//Put default auto code here
             break;
     	}
