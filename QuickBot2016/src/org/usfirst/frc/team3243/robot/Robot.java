@@ -21,7 +21,7 @@ public class Robot extends IterativeRobot {
     private static MotorControl MC;
     private static InputManager IM;
     private static Sensors S;
-    double degree = -20;
+    double degree = 90;
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -64,14 +64,12 @@ public class Robot extends IterativeRobot {
     	case defaultAuto:
     	default:
     		S.gyroFeed(true);
-        	
         	if (degree > 0)
         		//clockwise increases the gyro output
         	{//If you want to turn 
         		while(S.gyroFeed(false) < degree){
         			System.out.println(S.gyroFeed(false));
         			double[] in = new double[2];
-        			in[0] = 0.2;
         			in[1] = -0.2;
         			MC.drive(in);
         		} 
