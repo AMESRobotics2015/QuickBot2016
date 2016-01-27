@@ -67,20 +67,23 @@ public class Robot extends IterativeRobot {
         	if (degree > 0)
         		//clockwise increases the gyro output
         	{//If you want to turn 
-        		while(S.gyroFeed(false) < degree){
+        		while( degree -5 <S.gyroFeed(false)&& S.gyroFeed(false) < degree + 5){
         			System.out.println(S.gyroFeed(false));
         			double[] in = new double[2];
         			in[0] = 0.2;
         			in[1] = -0.2;
-        			MC.drive(in);
+        			degree = 0;
         		} 
+        		degree = 0;
         	}else if (degree < 0) {
-        		while(S.gyroFeed(false) > degree){
+        		while(S.gyroFeed(false)< degree +5 && S.gyroFeed(false) > degree -5){
         			double[] in = new double[2];
         			in[0] = -0.2;
         			in[1] = 0.2;
         			MC.drive(in);
+        			
         		}
+        		degree = 0;
         	}
     	//Put default auto code here
             break;
