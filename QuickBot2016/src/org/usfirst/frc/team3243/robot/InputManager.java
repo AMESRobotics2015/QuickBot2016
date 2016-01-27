@@ -18,8 +18,8 @@ public class InputManager {
 	 * @return
 	 */
 	double[] controllerInput() {
-		in[0] = .7 * ramp(deadZone(ctrl.getRawAxis(1))); //get a value (-1 to 1) from the controller. Then make sure it's outside of the deadzone. Then multiply it if the sprinting button is pressed.
-		in[1] = .7 * ramp(deadZone(ctrl.getRawAxis(3)));
+		in[0] = 1 * ramp(deadZone(ctrl.getRawAxis(1))); //get a value (-1 to 1) from the controller. Then make sure it's outside of the deadzone. Then multiply it if the sprinting button is pressed.
+		in[1] = 1 * ramp(deadZone(ctrl.getRawAxis(3)));
 		return(in);
 	}
 	
