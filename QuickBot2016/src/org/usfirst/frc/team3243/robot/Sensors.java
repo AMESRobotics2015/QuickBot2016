@@ -17,7 +17,7 @@ public class Sensors {
 	 */
 	public Sensors ()
 	{
-		watch = new USBCamera();
+		//watch = new USBCamera();
 		// Rotations  = new Encoder(null, null);
 		Direction = new AnalogGyro(0);
 		Direction.initGyro();

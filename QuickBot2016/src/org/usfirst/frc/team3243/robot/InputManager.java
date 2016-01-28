@@ -56,6 +56,10 @@ public class InputManager {
 		
 	}
 	
+	public boolean getButton(int button) {
+		return ctrl.getRawButton(button);
+	}
+	
 	/**
 	 * Read button presses as user input.
 	 */
