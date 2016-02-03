@@ -18,8 +18,8 @@ public class Robot extends IterativeRobot {
     final String customAuto = "My Auto";
     String autoSelected;
     SendableChooser chooser;
-    private static MotorControl MC;
-    private static InputManager IM;
+    //private static MotorControl MC;
+    //private static InputManager IM;
     private static Sensors S;
     double degree = 90;
 	
@@ -32,8 +32,8 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", defaultAuto);
         chooser.addObject("My Auto", customAuto);
         SmartDashboard.putData("Auto choices", chooser);
-        MC = new MotorControl();
-        IM = new InputManager();
+        //MC = new MotorControl();
+        //IM = new InputManager();
         S = new Sensors();
     }
     
@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot {
         			double[] in = new double[2];
         			in[0] = -0.2;
         			in[1] = 0.2;
-        			MC.drive(in);
+        			//MC.drive(in);
         			
         		}
         		degree = 0;
@@ -94,7 +94,8 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        MC.drive(IM.controllerInput(),IM.getButton(6));
+       //MC.drive(IM.controllerInput(),IM.getButton(6));
+    	
     }
     
     /**

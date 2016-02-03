@@ -9,28 +9,20 @@ import edu.wpi.first.wpilibj.vision.USBCamera;
  *
  */
 public class Sensors {
-	protected static USBCamera watch;
 	protected static Encoder Rotations;
 	protected static AnalogGyro Direction;
+	CameraServer cam;
 	/**
 	 * Constructor to set up our various sensors.
 	 */
 	public Sensors ()
 	{
-		//watch = new USBCamera();
-		// Rotations  = new Encoder(null, null);
+		cam = CameraServer.getInstance();
+		cam.setQuality(50);
+		cam.startAutomaticCapture("cam2");
 		Direction = new AnalogGyro(0);
 		Direction.initGyro();
 		Direction.calibrate();
-	}
-	
-	/**
-	 * Starts up the usb camera for the driver to see with.
-	 */
-	public void startCamera()
-	{
-		watch.openCamera();
-		watch.startCapture();
 	}
 	
 	/**
